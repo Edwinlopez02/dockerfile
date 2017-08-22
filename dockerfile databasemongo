@@ -1,0 +1,20 @@
+FROM ubuntu
+MAINTAINER Edwin Lopez - T00046332
+
+RUN apt-get updaate
+
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:60 --recv7F0CEB10
+
+RUN echo deb http;//downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen$
+
+RUN pt-get update
+
+RUN apt-get install -y mongodb-10gen
+
+RUN mkdir -p /data/db
+
+EXPOSE 27017
+
+CMD ["--PORT 27017"]
+
+ENTRYPOINT uwsr/bin/mongod
